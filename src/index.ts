@@ -1,28 +1,32 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import { RecipeRquest, getRecipe } from "./gptHandler/gpt.js";
+import { RecipeRquest, getRecipe } from "./assistants/recipe.js";
 
 const m: RecipeRquest = {
-    foods: ["cheese", "flour", "milk", "butter", "cream cheese", "dry tomato"],
-    tools: ["Stove", "AirFryer"],
+    foods: ["arroz", "massa", "pao", "leite", "quejo", "pimetao"],
+    tools: ["Fogao", "AirFryer", "microondas"],
+    language: "ptbr",
 }
 
-// getRecipe(m).then((data) => {
-//     // console.log(data);
-//     // console.log(data);
-// })
-// .catch((err) => {
-//     console.log(err);
-// })
+getRecipe(m).then((data) => {
+    console.log(data.title);
+    console.log('============');
+    console.log(data.description);
+    console.log('============');
+    console.log(data.time);
+    console.log('============');
+    console.log(data.serves);
+    console.log('============');
+    console.log(data.ingredients);
+    console.log('============');
+    console.log(data.tools);
+    console.log('============');
+    // console.log(data.steps);
+    // console.log('============');
+})
+.catch((err) => {
+    console.log(err);
+})
 
 
-type Recipe = {
-    title: string,
-    description: string,
-    time: string,
-    serves: string,
-    ingredients: string[],
-    tools: string[],
-    steps: string[],
-}
