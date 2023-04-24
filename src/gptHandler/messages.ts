@@ -1,4 +1,6 @@
-const messges = [
+import { ChatCompletionRequestMessage } from "openai";
+
+const messages: ChatCompletionRequestMessage[] = [
     {
         role: "system",
         content: `
@@ -71,7 +73,7 @@ const messges = [
         content: `
         {
             "title": "Cheesy Avocado Toast with Egg",
-            "description": "A quick and easy breakfast or lunch thats loaded with flavor and nutrients."
+            "description": "A quick and easy breakfast or lunch thats loaded with flavor and nutrients.",
             "time": "15 minutes",
             "serves": "1",
             "ingredients": [
@@ -98,8 +100,6 @@ const messges = [
         }
         `
     }
-
-
 ]
 
-export default messges;
+export default messages;

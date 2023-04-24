@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import { Configuration, OpenAIApi } from "openai";
+import { Configuration, OpenAIApi, ChatCompletionRequestMessage } from "openai";
 
-import { httpError, error } from "../Error/Error.js";
+import { httpError, error } from "../error/Error.js";
 import messages from "./messages.js";
 
 const configuration = new Configuration({
@@ -11,8 +11,8 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-export async function run(message: Content) {
-    const { foods, tools } = message;
+export async function getRecipe(request: RecipeRquest) {
+    const { foods, tools } = request;
     
     const text = `
     food: ${foods.join(", ")}
@@ -20,20 +20,21 @@ export async function run(message: Content) {
     `;
     console.log(text);
 
-    let ms = [...messages, { role: "user", content: text }]
-
     const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: ms,
+        messages: [...messages, { role: "user", content: text }]
     });
 
     // const res = JSON.parse(completion.data.choices[0].message as any);
-    const res = completion.data.choices[0].message as any;
-    return res;
-
+    const res = completion.data.choices[0].message as ChatCompletionRequestMessage;
+    
+    return JSON.parse(res.content);
 }
 
-export type Content = {
+export type RecipeRquest = {
     foods: string[],
     tools: string[],
+    language?: Language,
 }
+
+export type Language = 'en' | 'ptbr'
