@@ -1,6 +1,7 @@
 import { ChatCompletionRequestMessage } from "openai";
 
 const messages: ChatCompletionRequestMessage[] = [
+    // ============ SYSTEM ============
     {
         role: "system",
         content: `
@@ -18,86 +19,93 @@ const messages: ChatCompletionRequestMessage[] = [
     
         Nao enviar receita que utilize utensílios que não foram listados.
         Nem todos os alimentos listados precisam ser usados.
+        Voce deve mandar todas as respostas em portugues.
         `
     },
+    // ============ INTERACTION-1 ============
     {
         role: "user",
         content: `
         food: abacate, queijo, leite, vinho, frango, arroz
-        tools: microondas, AirFryer, 
+        tools: microondas, AirFryer
+        max-calories: unlimited
         `
     },
     {
         role: "assistant",
         content: `
         {
-            "title": "Frango com Queijo creomoso e Arroz de Abacate",
-            "description": "Um prato delicioso e nutritivo com frango tenro, abacate cremoso e arroz com queijo.",
+            "title": "Torrada de Abacate com Ovo",
+            "description": "Uma opção saudável e saborosa para o café da manhã que combina abacate cremoso e ovos ricos em proteínas em cima de uma torrada crocante",
             "time": "45 minutos",
-            "serves": "4",
+            "serves": "2",
+            "calories_per_serving": "650",
             "ingredients": [
-            "2 peitos de frango desossados e sem pele",
+            "2 peitos de frango sem pele e sem osso",
             "1 abacate descascado e cortado em cubos",
             "1 xícara de arroz branco cru",
-            "2 xícaras de água",
-            "1 xícara de leite",
-            "1 xícara de queijo ralado",
+            "1 3/4 xícaras de água",
+            "1/2 xícara de leite",
+            "1/2 xícara de queijo ralado",
             "1/4 xícara de vinho branco",
             "Sal e pimenta a gosto"
             ],
             "tools": [
-            "Panela média com tampa",
-            "Assadeira",
-            "Forno",
-            "Fogão"
+            "microondas",
+            "AirFryer"
             ],
             "steps": [
-            "Pré-aqueça o forno a 190°C.",
-            "Em uma panela média, misture o arroz, a água e o vinho branco. Leve para ferver, depois reduza o fogo e cubra. Cozinhe em fogo baixo por 18-20 minutos, ou até que o arroz esteja macio e o líquido tenha sido absorvido.",
-            "Enquanto o arroz está cozinhando, tempere os peitos de frango com sal e pimenta e cozinhe em uma frigideira em fogo médio até dourar e cozinhar por completo, cerca de 5-6 minutos de cada lado. Retire do fogo e deixe esfriar um pouco.",
-            "Assim que o arroz estiver pronto, misture o leite e o queijo ralado até que o queijo esteja derretido e a mistura esteja cremosa.",
-            "Coloque o frango cozido em uma assadeira e cubra com a mistura de arroz com queijo. Cubra com abacate em cubos.",
-            "Asse no forno preaquecido por 10-12 minutos, ou até aquecer completamente.",
-            "Sirva quente e aproveite!"
+            "Cozinhe o arroz no microondas com 1 3/4 xícaras de água de acordo com as instruções da embalagem.",
+            "Tempere o frango com sal e pimenta e cozinhe na AirFryer por 10-12 minutos, até que esteja cozido por completo.",
+            "Desfie o frango cozido com um garfo.",
+            "Em uma tigela própria para microondas, misture o arroz cozido, o leite e o queijo. Leve ao microondas em alta por 1-2 minutos, até que o queijo esteja derretido e a mistura fique cremosa.",
+            "Cubra a mistura de arroz e queijo com o frango desfiado, o abacate cortado em fatias e um fio de vinho.",
+            "Leve a tigela ao microondas por mais 1-2 minutos, até que tudo esteja aquecido por completo.",
+            "Sirva imediatamente e aproveite!"
             ]
         }
             `
     },
+    // ============ INTERACTION-2 ============
     {
         role: "user",
         content: `
         food: Ovos, Abacate, Queijo, leite, pao
-        tools: microondas, AirFryer
+        tools: microondas, AirFryer, forno
+        max-calories: 200
         `
     },
     {
         role: "assistant",
         content: `
         {
-            "title": "Torrada com queijo cremoso, Abacate e Ovo",
-            "description": "Um café da manhã ou almoço rápido e fácil, carregado de sabor e nutrientes.",
-            "time": "15 minutos",
-            "serves": "1",
+            "title": "Torrada de Abacate e Queijo no Café da Manhã",
+            "description": "Uma torrada de café da manhã rápida e fácil que combina abacate cremoso e queijo derretido em cima de pão crocante.",
+            "time": "20 minutos",
+            "serves": "2",
+            "calories_per_serving": "180",
             "ingredients": [
-            "1 fatia de pão",
-            "1 ovo",
+            "4 fatias de pão",
+            "2 ovos",
             "1/2 abacate amassado",
-            "1/4 xícara de queijo ralado",
-            "1 colher de sopa de leite"
+            "1/2 xícara de queijo ralado",
+            "1/4 xícara de leite",
+            "Sal e pimenta a gosto"
             ],
             "tools": [
-            "Torradeira",
-            "Microondas",
+            "forno",
             "AirFryer"
             ],
             "steps": [
-            "Toste o pão até atingir o nível de crocância desejado.",
-            "Enquanto o pão está tostando, quebre o ovo em um recipiente próprio para microondas e aqueça no microondas em alta potência por 45-60 segundos, ou até que fique cozido ao seu gosto.",
-            "Em uma tigela pequena, misture o abacate amassado, queijo ralado e leite.",
-            "Espalhe a mistura de abacate sobre o pão torrado.",
-            "Coloque o ovo cozido por cima da torrada com abacate.",
-            "Coloque a torrada montada na AirFryer e ajuste a temperatura para 175°C. Cozinhe por 3-5 minutos, ou até que o queijo esteja derretido e borbulhante.",
-            "Retire da AirFryer e deixe esfriar por um ou dois minutos antes de servir e aproveitar!"
+            "Pré-aqueça o forno a 175°C.",
+            "Em uma tigela, misture os ovos, o leite, o sal e a pimenta.",
+            "Unte uma pequena assadeira com spray de cozinha e despeje a mistura de ovos.",
+            "Asse os ovos por 10-12 minutos, até que estejam firmes.",
+            "Enquanto isso, coloque as fatias de pão no AirFryer e cozinhe por 4-5 minutos, até ficarem crocantes e douradas.",
+            "Espalhe o abacate amassado em cima das fatias de pão.",
+            "Polvilhe o queijo ralado em cima do abacate.",
+            "Coloque as torradas no forno e asse por 2-3 minutos, até que o queijo esteja derretido e borbulhando.",
+            "Sirva imediatamente e aproveite!"
             ]
         }
         `

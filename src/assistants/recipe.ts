@@ -4,11 +4,12 @@ import messagesPTBR from "../messages/ptbr/recipe.js";
 import gpt from "../gptHandler/gpt.js";
 
 export async function getRecipe(request: RecipeRquest): Promise<RecipeResponse> {    
-    const { foods, tools, language } = request;
+    const { foods, tools, max_calories ,language } = request;
     
     const text = `
     food: ${foods.join(", ")}
     tools: ${tools.join(", ")}
+    max-calories: ${max_calories}
     `;
     console.log(text);
 
@@ -23,6 +24,7 @@ export async function getRecipe(request: RecipeRquest): Promise<RecipeResponse> 
 export type RecipeRquest = {
     foods: string[],
     tools: string[],
+    max_calories: number | 'unlimited',
     language: Language,
 }
 
@@ -30,7 +32,8 @@ export type RecipeResponse = {
     title: string,
     description: string,
     time: string,
-    serves: string,
+    serves: number,
+    calories_per_serving: number,
     ingredients: string[],
     tools: string[],
     steps: string[],
