@@ -3,12 +3,10 @@ import messagesEN from "../messages/en/recipe.js";
 import messagesPTBR from "../messages/ptbr/recipe.js";
 import gpt from "../gptHandler/gpt.js";
 
-export async function getRecipe(request: RecipeRquest): Promise<RecipeResponse> {    
-    const { foods, tools, max_calories ,language } = request;
-    
+export async function getRecipe({ ingridients, utensils, max_calories, language }: RecipeProps): Promise<RecipeData> {
     const text = `
-    food: ${foods.join(", ")}
-    tools: ${tools.join(", ")}
+    food: ${ingridients.join(", ")}
+    tools: ${utensils.join(", ")}
     max-calories: ${max_calories}
     `;
     console.log(text);
@@ -17,18 +15,18 @@ export async function getRecipe(request: RecipeRquest): Promise<RecipeResponse> 
     const m = [...msgs, { role: "user", content: text }] as ChatCompletionRequestMessage[]
     const res = await gpt(m);
 
-    const recipe = JSON.parse(res.content) as RecipeResponse;
+    const recipe = JSON.parse(res.content) as RecipeData;
     return recipe;
 }
 
-export type RecipeRquest = {
-    foods: string[],
-    tools: string[],
+export type RecipeProps = {
+    ingridients: string[],
+    utensils: string[],
     max_calories: number | 'unlimited',
     language: Language,
 }
 
-export type RecipeResponse = {
+export type RecipeData = {
     title: string,
     description: string,
     time: string,
