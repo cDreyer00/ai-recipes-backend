@@ -12,9 +12,11 @@ export type SingleChatInteractionPops = {
 
 export function BuildTrainingMessages({ systemMessage, messagesPair }: TrainingMessagesProps): ChatCompletionRequestMessage[] {
     const messages: ChatCompletionRequestMessage[] = [];
-
+    
+    // load system instructions
     messages.push({ role: 'system', content: systemMessage });
 
+    // load example messages
     messagesPair.forEach(({ userMessage, assistantMessage }) => {
         messages.push({ role: 'user', content: userMessage });
         messages.push({ role: 'assistant', content: assistantMessage });
