@@ -27,7 +27,6 @@ export type RecipeData = {
 export async function requestRecipe(recipeRequest: RecipeProps): Promise<RecipeData> {
     const message = JSON.stringify(recipeRequest);
     const m = [...trainingMesages(), { role: "user", content: message }] as ChatCompletionRequestMessage[]
-    console.log(m);
     const res = await gpt(m);
 
     const recipe = JSON.parse(res.content) as RecipeData;
@@ -86,7 +85,7 @@ const interaction1: SingleChatInteractionPops = {
         "description": "A delicious and satisfying rice bowl topped with creamy avocado, tender chicken, and a touch of wine.",
         "time": "45 minutes",
         "serves": 4,
-        "calories": null,
+        "calories": 250,
         "ingredients": [
             "2 chicken breasts",
             "1 avocado",
@@ -164,7 +163,7 @@ const interaction3: SingleChatInteractionPops = {
         "description": "Uma deliciosa lasanha vegetariana de berinjela com tomate, cebola, pimentão e queijo derretido.",
         "time": "35 minutos",
         "serves": "1",
-        "calories_per_serving": "350",
+        "calories": "350",
         "ingredients": [
             "1/2 berinjela grande",
             "2 tomates maduros",
@@ -210,7 +209,7 @@ const interaction4: SingleChatInteractionPops = {
         "description": "Un delicioso plato de arroz con pollo y aguacate, con un toque de vino y queso derretido.",
         "time": "40 minutos",
         "serves": "4",
-        "calories_per_serving": "450",
+        "calories": "450",
         "ingredients": [
             "2 tazas de arroz",
             "4 tazas de caldo de pollo",

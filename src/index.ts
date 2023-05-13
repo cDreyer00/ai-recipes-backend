@@ -29,10 +29,9 @@ server.listen({ port: 3001 }, (err, address) => {
 })
 
 const r1 = {
-    ingridients: ['eggs', 'tomato', 'onion', 'pepper', 'garlic', 'olive oil', 'pepper', 'oregano', 'cheese'],
-    calories: 250,
-    serves: 1,
-    time: 40,
+    ingridients: ['farinha', 'berinjela', 'tomate', 'queijo', 'leite', 'pao'],
+    serves: 2,
+    time: 60,
     language: "ptbr"
 } as RecipeProps;
 
@@ -47,9 +46,7 @@ const r3 = {
     time: 60,
     language: "ptbr",    
 } as RecipeProps;
-
-console.log(JSON.stringify(r1));
-
+ 
 // requestRecipe(rInfo)
 // .then((res) => console.log(res))
 // .catch((err) => console.log(err));
