@@ -20,7 +20,7 @@ export type RecipeData = {
     serves: number,
     calories: number,
     ingredients: string[],
-    tools: string[],
+    utensils: string[],
     steps: string[],
 }
 
@@ -65,6 +65,7 @@ You ALWAYS need to send a recipe as a JSON object with the following properties:
 - time to cook
 - number of people it serves
 - calories per serving
+- an emoji that represents the recipe
 
 Besides ingridients, all other properties are optional.
 In case that utensils are not specified, you can assume that the user has all the utensils needed.
@@ -77,41 +78,44 @@ Not all foods listed need to be used.
 
 const interaction1: SingleChatInteractionPops = {
     userMessage: `
-    {"ingridients":["avocado","cheese","milk","wine","chicken","rice"],"utensils":["microwave","AirFryer"],"time":60,"language":"en"}
+    {"ingridients":["quinoa","cenouras","abobrinha","pimentão vermelho","cebola roxa","azeite de oliva","limão","salsa"],"serves":4,"language":"ptbr"}
     `,
     assistantMessage: `
     {
-        "title": "Creamy Avocado and Chicken Rice Bowl",
-        "description": "A delicious and satisfying rice bowl topped with creamy avocado, tender chicken, and a touch of wine.",
-        "time": "45 minutes",
+        "title": "Salada de Quinoa com Legumes Assados",
+        "description": "Uma salada nutritiva e saborosa, feita com quinoa, legumes assados e um delicioso molho de limão.",
+        "time": 50,
         "serves": 4,
-        "calories": 250,
+        "calories": 300,
         "ingredients": [
-            "2 chicken breasts",
-            "1 avocado",
-            "1 cup rice",
-            "400ml water",
-            "1/2 cup milk",
-            "1/2 cup shredded cheese",
-            "1/4 cup white wine",
-            "Salt and pepper to taste"
-        ],
+            "1 xícara de quinoa",            
+            "2 cenouras médias, cortadas em rodelas",
+            "1 abobrinha média, cortada em cubos",
+            "1 pimentão vermelho, cortado em tiras",
+            "1 cebola roxa, cortada em fatias",
+            "2 colheres de sopa de azeite de oliva",
+            "Suco de 1 limão",
+            "2 colheres de sopa de salsa picada",
+            "Sal e pimenta a gosto"
+          ],
         "utensils": [
-            "microwave",
-            "AirFryer"
+          "Assadeira",
+          "Panela",
+          "Tigela grande"
         ],
         "steps": [
-            "Cook rice in the microwave with 1 3/4 cups of water according to package instructions.",
-            "Season the chicken with salt and pepper, and cook it in the AirFryer for 10-12 minutes, until cooked through.",
-            "Let the chicken rest for a few minutes, then slice it into thin strips.",
-            "In a microwave-safe bowl, mix together the cooked rice, milk, and shredded cheese. Microwave on high for 1-2 minutes, until the cheese is melted and the mixture is creamy.",
-            "Place the creamy rice in serving bowls.",
-            "Top the rice with sliced avocado and the cooked chicken strips.",
-            "Drizzle the white wine over the bowl.",
-            "Season with additional salt and pepper if desired.",
-            "Serve immediately and enjoy!"
-        ]
-    }
+          "Pré-aqueça o forno a 200°C.",
+          "Em uma panela, cozinhe a quinoa de acordo com as instruções da embalagem. Reserve.",
+          "Em uma assadeira, coloque as cenouras, abobrinha, pimentão e cebola. Regue com o azeite de oliva, tempere com sal e pimenta, e misture bem.",
+          "Asse os legumes no forno por cerca de 25 minutos, ou até ficarem macios e levemente dourados.",
+          "Em uma tigela grande, misture a quinoa cozida, os legumes assados, o suco de limão e a salsa picada.",
+          "Tempere com sal e pimenta a gosto.",
+          "Sirva a salada de quinoa com legumes assados como prato principal ou acompanhamento."
+        ],
+        "emoji": "🥗"
+      }
+      
+      
     `
 }
 
@@ -121,34 +125,35 @@ const interaction2: SingleChatInteractionPops = {
     `,
     assistantMessage: `
     {
-        "title": "Avocado and Cheese Breakfast Toast",
-        "description": "A quick and easy breakfast toast that combines creamy avocado and melted cheese on top of crispy bread.",
-        "time": "20 minutes",
-        "serves": "2",
-        "calories": "180",
+        "title": "Ultimate Avocado Egg Melt",
+        "description": "A delicious sandwich made with creamy eggs, ripe avocado, melted cheese, and toasted bread.",
+        "time": 15,
+        "serves": 2,
+        "calories": 400,
         "ingredients": [
+            "4 eggs",
+            "1 ripe avocado",
+            "100g cheese",
             "4 slices of bread",
-            "2 eggs",
-            "1/2 avocado, mashed",
-            "1/2 cup shredded cheese",
-            "1/4 cup milk",
+            "2 tablespoons of milk",
             "Salt and pepper to taste"
         ],
-        "tools": [
-            "oven",
-            "AirFryer"
+        "utensils": [
+          "Frying pan",
+          "Bowl",
+          "Knife"
         ],
         "steps": [
-            "Preheat the oven to 350°F (175°C).",
-            "In a bowl, whisk together the eggs, milk, salt, and pepper.",
-            "Grease a small baking dish with cooking spray and pour in the egg mixture.",
-            "Bake the eggs for 10-12 minutes, until set.",
-            "Meanwhile, place the bread slices in the AirFryer and cook for 4-5 minutes, until crispy and golden brown.",
-            "Spread the mashed avocado on top of the bread slices.",
-            "Sprinkle the shredded cheese on top of the avocado.",
-            "Place the toast in the oven and bake for 2-3 minutes, until the cheese is melted and bubbly.",
-            "Serve immediately and enjoy!"
-        ]
+            "In a bowl, beat the eggs with milk. Season with salt and pepper.",
+            "Heat a frying pan over medium heat and add the beaten eggs. Stir gently until creamy and cooked to your liking. Set aside.",
+            "Cut the avocado in half, remove the pit, and slice the flesh.",
+            "Toast the bread slices in a toaster or in a frying pan.",
+            "Assemble the sandwich by layering creamy eggs, avocado slices, and cheese. Top with another slice of bread.",
+            "Repeat the process for the second sandwich.",
+            "Heat the frying pan over medium-low heat and place the sandwiches in the pan. Cook for a few minutes on each side until the cheese melts and the bread turns golden brown.",
+            "Remove from the pan, cut in half, and serve hot."
+        ],
+        "emoji": "🥪",
     }
     `
 }
