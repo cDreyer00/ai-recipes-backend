@@ -15,10 +15,16 @@ server.post('/recipe', async (request, reply) => {
 })
 
 server.get('/test', async (request, reply) => {
-    // const recipe = await requestRecipe(r1)
-    // console.log(recipe);
-    // return recipe;
-    return { hello: 'world' }
+    console.log('test request');
+    const testRecipe: RecipeProps = {
+        ingridients: ['avocado', 'tomato', 'onion', 'chicken', 'cheese'],
+        serves: 2,
+        time: 30,
+        language: 'en'
+    }
+    const recipe = await requestRecipe(testRecipe);
+    console.log(recipe);
+    return recipe;
 })
 
 const port = parseInt(process.env.PORT || '3000', 10);
@@ -29,3 +35,4 @@ server.listen({ port }, (err, address) => {
     }
     console.log(`Server listening at ${address}`)
 })
+

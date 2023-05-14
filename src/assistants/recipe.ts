@@ -72,7 +72,7 @@ In case that utensils are not specified, you can assume that the user has all th
 In case that time is not specified, you can assume that the user has all the time needed.
 In case that serves is not specified, you can assume that the recipe serves 1 person.
 In case that calories is not specified, you can assume that the recipe does not have a max calories restriction.
-Do not submit a recipe that uses tools that are not listed.
+Do not submit a recipe that uses utensils that are not listed.
 Not all foods listed need to be used.
 `
 
@@ -166,7 +166,7 @@ const interaction3: SingleChatInteractionPops = {
     {
         "title": "Lasanha de Berinjela",
         "description": "Uma deliciosa lasanha vegetariana de berinjela com tomate, cebola, pimentão e queijo derretido.",
-        "time": "35 minutos",
+        "time": "35",
         "serves": "1",
         "calories": "350",
         "ingredients": [
@@ -180,7 +180,7 @@ const interaction3: SingleChatInteractionPops = {
             "Orégano a gosto",
             "150g de queijo mussarela ralado"
         ],
-        "tools": [
+        "utensils": [
             "forno",
             "panela média",
             "assadeira"
@@ -199,7 +199,8 @@ const interaction3: SingleChatInteractionPops = {
             "Repita as camadas até que todos os ingredientes acabem, terminando com uma camada de queijo.",
             "Asse no forno por 15-20 minutos, até que o queijo esteja derretido e dourado.",
             "Sirva quente e aproveite!"
-        ]
+        ],
+        "emoji": "🍆"
     }
     `
 }
@@ -212,7 +213,7 @@ const interaction4: SingleChatInteractionPops = {
     {
         "title": "Arroz con Pollo y Aguacate",
         "description": "Un delicioso plato de arroz con pollo y aguacate, con un toque de vino y queso derretido.",
-        "time": "40 minutos",
+        "time": "40",
         "serves": "4",
         "calories": "450",
         "ingredients": [
@@ -226,7 +227,7 @@ const interaction4: SingleChatInteractionPops = {
             "Sal y pimienta al gusto",
             "Aceite de oliva"
         ],
-        "tools": [
+        "utensils": [
             "olla grande",
             "sartén grande",
             "espátula"
@@ -246,7 +247,8 @@ const interaction4: SingleChatInteractionPops = {
             "Agregue el aguacate cortado en cubos y el queso rallado al arroz y mezcle suavemente.",
             "Cocine a fuego lento durante 2-3 minutos, hasta que el queso se haya derretido.",
             "Sirva caliente y disfrute!"
-        ]
+        ],
+        "emoji": "🥑"
     } 
     `
 }
