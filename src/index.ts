@@ -8,8 +8,8 @@ const server = fastify()
 
 server.post('/recipe', async (request, reply) => {
     console.log(request.body);
-    const { ingridients, utensils, calories, serves, time, language } = request.body as RecipeProps;
-    const recipe = await requestRecipe({ ingridients, utensils, calories, serves, time, language });
+    let recipeRequest = request.body as RecipeProps;
+    const recipe = await requestRecipe(recipeRequest);
     console.log(recipe);
     return recipe;
 })
