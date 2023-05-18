@@ -3,8 +3,8 @@ dotenv.config();
 
 import { RecipeData, RecipeProps, requestRecipe } from "./assistants/recipe.js";
 
-import fastify from 'fastify'
-const server = fastify()
+import express from 'express';
+const server = express();
 
 server.post('/recipe', async (request, reply) => {
     console.log('========== NEW REQUEST ==========');
@@ -12,7 +12,8 @@ server.post('/recipe', async (request, reply) => {
     let recipeRequest = request.body as RecipeProps;
     const recipe = await requestRecipe(recipeRequest);
     console.log(recipe);
-    return recipe;
+    
+    return reply.send(recipe);
 })
 
 server.get('/test', async (request, reply) => {
@@ -25,15 +26,8 @@ server.get('/test', async (request, reply) => {
     }
     const recipe = await requestRecipe(testRecipe);
     console.log(recipe);
-    return recipe;
+    return reply.send(recipe);
 })
 
 const port = parseInt(process.env.PORT || '3000', 10);
-server.listen({ port }, (err, address) => {
-    if (err) {
-        console.error(err)
-        process.exit(1)
-    }
-    console.log(`Server listening at ${address}`)
-})
-
+server.listen(port, () => console.log(`Server listening on port ${port}`));
