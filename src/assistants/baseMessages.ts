@@ -273,7 +273,7 @@ const interactions: SingleChatInteractionPops[] = [
         {
             "title": "Feijão com Arroz e Carne",
             "description": "Um prato tradicional brasileiro feito com feijão, arroz e carne vermelha.",
-            "time": "60 minutos",
+            "time": "60",
             "serves": "4",
             "calories": "400",
             "ingredients": [

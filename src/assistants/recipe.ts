@@ -29,7 +29,6 @@ export async function requestRecipe(recipeRequest: RecipeProps): Promise<RecipeD
     const message = JSON.stringify(recipeRequest);
     const m = [...trainingMesages(), { role: "user", content: message }] as ChatCompletionRequestMessage[]
     const res = await gpt(m);
-    console.log(res);
     const recipe = JSON.parse(res.content) as RecipeData;
     return recipe;
 }

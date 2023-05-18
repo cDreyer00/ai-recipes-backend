@@ -5,6 +5,8 @@ import { RecipeData, RecipeProps, requestRecipe } from "./assistants/recipe.js";
 
 import express from 'express';
 const server = express();
+server.use(express.json());
+
 
 server.post('/recipe', async (request, reply) => {
     console.log('========== NEW REQUEST ==========');
