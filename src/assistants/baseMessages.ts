@@ -41,44 +41,41 @@ you CAN NOT send messages that are not a recipe or in the exact json format. In 
 const interactions: SingleChatInteractionPops[] = [
     {
         userMessage: `
-        {"ingridients":["quinoa","cenouras","abobrinha","pimentão vermelho","cebola roxa","azeite de oliva","limão","salsa"],"serves":4,"language":"ptbr"}
+        {"ingridients":["avocado","cheese","milk","wine","chicken","rice"],"utensils":["microwave","AirFryer"],"time":60,"language":"en"}
         `,
         assistantMessage: `
         {
-            "title": "Salada de Quinoa com Legumes Assados",
-            "description": "Uma salada nutritiva e saborosa, feita com quinoa, legumes assados e um delicioso molho de limão.",
-            "time": 50,
+            "title": "Creamy Avocado and Chicken Rice Bowl",
+            "description": "A delicious and satisfying rice bowl topped with creamy avocado, tender chicken, and a touch of wine.",
+            "time": "45",
             "serves": 4,
-            "calories": 300,
+            "calories": 250,
             "ingredients": [
-                "1 xícara de quinoa",            
-                "2 cenouras médias, cortadas em rodelas",
-                "1 abobrinha média, cortada em cubos",
-                "1 pimentão vermelho, cortado em tiras",
-                "1 cebola roxa, cortada em fatias",
-                "2 colheres de sopa de azeite de oliva",
-                "Suco de 1 limão",
-                "2 colheres de sopa de salsa picada",
-                "Sal e pimenta a gosto"
-              ],
+                "2 chicken breasts",
+                "1 avocado",
+                "1 cup rice",
+                "400ml water",
+                "1/2 cup milk",
+                "1/2 cup shredded cheese",
+                "1/4 cup white wine",
+                "Salt and pepper to taste"
+            ],
             "utensils": [
-              "Assadeira",
-              "Panela",
-              "Tigela grande"
+                "microwave",
+                "AirFryer"
             ],
             "steps": [
-              "Pré-aqueça o forno a 200°C.",
-              "Em uma panela, cozinhe a quinoa de acordo com as instruções da embalagem. Reserve.",
-              "Em uma assadeira, coloque as cenouras, abobrinha, pimentão e cebola. Regue com o azeite de oliva, tempere com sal e pimenta, e misture bem.",
-              "Asse os legumes no forno por cerca de 25 minutos, ou até ficarem macios e levemente dourados.",
-              "Em uma tigela grande, misture a quinoa cozida, os legumes assados, o suco de limão e a salsa picada.",
-              "Tempere com sal e pimenta a gosto.",
-              "Sirva a salada de quinoa com legumes assados como prato principal ou acompanhamento."
-            ],
-            "emoji": "🥗"
-          }
-          
-          
+                "Cook rice in the microwave with 1 3/4 cups of water according to package instructions.",
+                "Season the chicken with salt and pepper, and cook it in the AirFryer for 10-12 minutes, until cooked through.",
+                "Let the chicken rest for a few minutes, then slice it into thin strips.",
+                "In a microwave-safe bowl, mix together the cooked rice, milk, and shredded cheese. Microwave on high for 1-2 minutes, until the cheese is melted and the mixture is creamy.",
+                "Place the creamy rice in serving bowls.",
+                "Top the rice with sliced avocado and the cooked chicken strips.",
+                "Drizzle the white wine over the bowl.",
+                "Season with additional salt and pepper if desired.",
+                "Serve immediately and enjoy!"
+            ]
+        } 
         `
     },
     {
@@ -246,33 +243,182 @@ const interactions: SingleChatInteractionPops[] = [
                 "Adicione o abacate cortado em cubos e o queijo ralado ao arroz e misture delicadamente.",
                 "Tempere com sal e pimenta a gosto.",
                 "Sirva quente e aproveite!"
-            ]
+            ],
+            "emoji": "🥑"
         }
         `
     },
     {
         userMessage: `
+        {
+            ingridients: [
+                'Ovos',
+                'feijão',
+                'arroz',
+                'sabão',
+                'tomate',
+                'cebola',
+                'alho',
+                'sal',
+                'carne vermelha'
+            ],
+            utensils: [],
+            serves: 0,
+            time: 0,
+            kcal: 0,
+            language: 'Pt'
+        }
         `,
         assistantMessage: `
         {
-            "title": 'Berinjela Assada no Microondas',
-            "description": 'Uma receita fácil e rápida para fazer berinjela assada no microondas.',
-            "time": '10',
-            "serves": '1',
-            "calories": '50',
-            "ingredients": [ '1 berinjela média' ],
-            "utensils": [ 'Prato para microondas' ],
-            "steps": [
-              'Lave bem a berinjela e corte-a em fatias médias.',
-              'Coloque as fatias de berinjela em um prato para microondas.',
-              'Cubra o prato com uma tampa para microondas ou com um papel-toalha úmido.',
-              'Leve ao microondas por 5-7 minutos, ou até que a berinjela esteja macia.',
-              'Retire do microondas e deixe esfriar por alguns minutos.',
-              'Sirva como acompanhamento ou use em outras receitas.'
+            "title": "Feijão com Arroz e Carne",
+            "description": "Um prato tradicional brasileiro feito com feijão, arroz e carne vermelha.",
+            "time": "60 minutos",
+            "serves": "4",
+            "calories": "400",
+            "ingredients": [
+                "2 xícaras de arroz",
+                "2 xícaras de feijão cozido",
+                "500g de carne vermelha cortada em cubos",
+                "2 tomates picados",
+                "1 cebola picada",
+                "2 dentes de alho picados",
+                "Sal a gosto"
             ],
-            "emoji": '🍆'
-          }
-        `
-
-    }
+            "utensils": [
+                "panela média",
+                "frigideira",
+                "espátula"
+            ],
+            "steps": [
+                "Cozinhe o arroz em uma panela média com água e sal a gosto.",
+                "Enquanto o arroz cozinha, aqueça uma frigideira em fogo médio.",
+                "Adicione a carne vermelha à frigideira e cozinhe por 5-7 minutos, até dourar.",
+                "Adicione a cebola e o alho picados à frigideira e refogue por mais 2-3 minutos.",
+                "Adicione os tomates picados e cozinhe por mais 5 minutos, até que os tomates estejam macios.",
+                "Adicione o feijão cozido à frigideira e misture bem.",
+                "Tempere com sal a gosto e cozinhe por mais alguns minutos, até que todos os ingredientes estejam bem combinados.",
+                "Sirva o feijão com arroz e a carne vermelha por cima.",
+                "Acompanhe com uma salada verde, se desejar.",
+                "Bom apetite!"
+            ],
+            "emoji": "🍛"
+        }
+        `,
+    },
+    // {
+    //     userMessage: `
+    //     {
+    //         ingridients: [
+    //           'Carne',
+    //           'batata',
+    //           'arroz',
+    //           'cenoura',
+    //           'alvejante',
+    //           'sabão',
+    //           'cebola'
+    //         ],
+    //         utensils: [],
+    //         serves: 0,
+    //         time: 0,
+    //         kcal: 0,
+    //         language: 'Pt'
+    //       }
+    //     `,
+    //     assistantMessage: `
+    //     {
+    //         "title": "Carne com Legumes",
+    //         "description": "Um prato saudável e saboroso feito com carne e legumes variados.",
+    //         "time": "60 minutos",
+    //         "serves": "4",
+    //         "calories": "400",
+    //         "ingredients": [
+    //           "500g de carne em cubos",
+    //           "2 batatas grandes, descascadas e cortadas em cubos",
+    //           "1 xícara de arroz",
+    //           "2 cenouras médias, descascadas e cortadas em rodelas",
+    //           "1 cebola grande, picada",
+    //           "Sal e pimenta a gosto"
+    //         ],
+    //         "utensils": [
+    //           "panela grande",
+    //           "frigideira",
+    //           "colher de pau"
+    //         ],
+    //         "steps": [
+    //           "Cozinhe o arroz em uma panela grande com água e sal a gosto.",
+    //           "Enquanto o arroz cozinha, aqueça uma frigideira em fogo médio.",
+    //           "Adicione a carne em cubos à frigideira e cozinhe por 5-7 minutos, até que esteja dourada e cozida por completo.",
+    //           "Retire a carne da frigideira e reserve.",
+    //           "Na mesma frigideira, adicione as batatas e as cenouras cortadas em cubos e refogue por alguns minutos, até que estejam macias e douradas.",
+    //           "Adicione a cebola picada à frigideira e refogue por mais alguns minutos.",
+    //           "Adicione a carne de volta à frigideira e misture tudo muito bem.",
+    //           "Tempere com sal e pimenta a gosto e cozinhe por mais alguns minutos para que todos os ingredientes estejam bem combinados.",
+    //           "Sirva a carne com legumes por cima do arroz cozido.",
+    //           "Bom apetite!"
+    //         ],
+    //         "emoji": "🥩"
+    //       }
+    //     `,
+    // },
+    // {
+    //     userMessage: `
+    //     {
+    //         ingridients: [
+    //           'Carne',
+    //           'batata',
+    //           'arroz',
+    //           'cenoura',
+    //           'alvejante',
+    //           'sabão',
+    //           'cebola'
+    //         ],
+    //         utensils: [],
+    //         serves: 0,
+    //         time: 0,
+    //         kcal: 0,
+    //         language: 'Pt'
+    //       }
+    //     `,
+    //     assistantMessage: `
+    //     {
+    //         "title": "Arroz com Legumes",
+    //         "description": "Um prato vegetariano delicioso e saudável, feito com arroz e uma variedade de legumes.",
+    //         "time": "40 minutos",
+    //         "serves": "4",
+    //         "calories": "300",
+    //         "ingredients": [
+    //             "2 xícaras de arroz",
+    //             "4 xícaras de água",
+    //             "1 cenoura média, descascada e cortada em cubinhos",
+    //             "1/2 pimentão vermelho, cortado em cubinhos",
+    //             "1/2 pimentão amarelo, cortado em cubinhos",
+    //             "1 cebola média, picada",
+    //             "3 dentes de alho picados",
+    //             "1 colher de sopa de azeite",
+    //             "Sal e pimenta a gosto"
+    //         ],
+    //         "utensils": [
+    //             "panela grande",
+    //             "colher",
+    //             "faca",
+    //             "tábua de corte"
+    //         ],
+    //         "steps": [
+    //             "Lave o arroz em água corrente e deixe-o de molho por pelo menos 10 minutos.",
+    //             "Em uma panela grande, aqueça o azeite em fogo médio.",
+    //             "Adicione a cebola picada e o alho picado à panela e refogue por alguns minutos, até que estejam macios e perfumados.",
+    //             "Adicione a cenoura cortada em cubinhos e os pimentões cortados em cubinhos à panela e refogue por mais alguns minutos.",
+    //             "Adicione o arroz escorrido à panela e refogue por mais alguns minutos, mexendo sempre.",
+    //             "Adicione as quatro xícaras de água à panela e misture bem.",
+    //             "Tempere com sal e pimenta a gosto e deixe ferver.",
+    //             "Reduza o fogo para baixo e cubra a panela com uma tampa.",
+    //             "Cozinhe por 15-20 minutos, até que o arroz esteja macio e a água tenha sido absorvida.",
+    //             "Sirva o arroz com legumes quente.",
+    //             "Bom apetite!"
+    //         ],
+    //         "emoji": "🍚"
+    //     }
+    //     `,
+    // },
 ]

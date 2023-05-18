@@ -22,14 +22,14 @@ export type RecipeData = {
     ingredients: string[],
     utensils: string[],
     steps: string[],
+    emoji: string,
 }
 
 export async function requestRecipe(recipeRequest: RecipeProps): Promise<RecipeData> {
     const message = JSON.stringify(recipeRequest);
     const m = [...trainingMesages(), { role: "user", content: message }] as ChatCompletionRequestMessage[]
     const res = await gpt(m);
-    console.log('RESPONSE: ', res.content, 'END')
-
+    console.log(res);
     const recipe = JSON.parse(res.content) as RecipeData;
     return recipe;
 }

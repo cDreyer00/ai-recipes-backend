@@ -1,12 +1,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import { RecipeProps, requestRecipe } from "./assistants/recipe.js";
+import { RecipeData, RecipeProps, requestRecipe } from "./assistants/recipe.js";
 
 import fastify from 'fastify'
 const server = fastify()
 
 server.post('/recipe', async (request, reply) => {
+    console.log('========== NEW REQUEST ==========');
     console.log(request.body);
     let recipeRequest = request.body as RecipeProps;
     const recipe = await requestRecipe(recipeRequest);
